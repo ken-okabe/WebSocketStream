@@ -1,0 +1,8 @@
+{
+  "name": "myProject",
+  "version": "1.0.0",
+  "main": "./path/to/main.css",
+  "dependencies": {
+    "jquery": "~1.7.2"
+  }
+}
