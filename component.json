@@ -1,8 +1,8 @@
 {
-  "name": "myProject",
-  "version": "1.0.0",
-  "main": "./path/to/main.css",
-  "dependencies": {
-    "jquery": "~1.7.2"
-  }
+    "name": "WebSocketStream",
+    "version": "0.2.0",
+    "main": "./lib/main.js",
+    "dependencies": {
+        "Node-in-browser": "0.x"
+    }
 }
