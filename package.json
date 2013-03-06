@@ -1,0 +1,21 @@
+{
+  "name": "websocketstream",
+  "version": "1.0.0",
+  "description": "a Stream interface on top of WebSocket",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BallBearing/WebSocketStream.git"
+  },
+  "keywords": [
+    "WebSocket",
+    "Stream",
+    "Node.js"
+  ],
+  "author": "David Braun",
+  "license": "LGPL",
+  "readmeFilename": "README.md"
+}

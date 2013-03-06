@@ -1,6 +1,6 @@
 {
     "name": "WebSocketStream",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "main": "./lib/main.js",
     "dependencies": {
         "Node-in-browser": "0.x"
