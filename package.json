@@ -17,5 +17,8 @@
   ],
   "author": "David Braun",
   "license": "LGPL",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "ws": "~0.4.25"
+  }
 }
