@@ -19,6 +19,6 @@
   "license": "LGPL",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "ws": "~0.4.25"
+    "assert2": "~0.1.0"
   }
 }
