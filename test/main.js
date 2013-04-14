@@ -8,7 +8,7 @@ var assert = require('assert2'),
     stream = require('stream'),
     util = require('util'),
 
-    WebSocketStream = require('./main'),
+    WebSocketStream = require('./../lib/main'),
     clientSocket,
     clientStream,
     string = "Come back to me.",
@@ -109,13 +109,15 @@ clientStream.on('end', function () {
         clientSocket.emit('error');
     });
 
+    clientStream = new WebSocketStream(clientSocket);
+
     // Closing the socket should close the stream.
     clientSocket.close();
 });
 
 clientStream.on('close', function () {
     // Pretend there is no bufferedAmount but the write should not be
-    // flushed in the socket is closed.
+    // flushed when the socket is closed.
 
     var drainEmitted = false;
 
