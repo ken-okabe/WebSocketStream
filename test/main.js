@@ -99,7 +99,12 @@ clientSocket.addEventListener('open', function () {
 });
 
 clientSocket.readyState = clientSocket.OPEN;
-clientSocket.emit('open');
+
+// This should emit a drain event because 'write' returned false when we wrote
+// before it was open.
+assert.emits(clientStream, 'drain', function () {
+    clientSocket.emit('open');
+});
 
 clientStream.on('end', function () {
     assert.deepEqual(messages, ["pre-open", string, buffer]);
