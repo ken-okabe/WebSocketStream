@@ -20,7 +20,11 @@ in the browser without requiring a build step
 
 # Installation
 
-You can install the library with [Bower](http://http://bower.io/):
+You can install the library with npm for use with Node.js:
+
+`npm install websocketstream`
+
+or with [Bower](http://http://bower.io/) for use in the browser:
 
 `bower install WebSocketStream`
 
