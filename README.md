@@ -20,7 +20,7 @@ in the browser without requiring a build step
 
 # Installation
 
-You can install the library with [Bower](http://twitter.github.com/bower/):
+You can install the library with [Bower](http://http://bower.io/):
 
 `bower install WebSocketStream`
 
