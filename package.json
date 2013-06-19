@@ -20,5 +20,8 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "assert2": "~0.1.0"
+  },
+  "dependencies": {
+    "amdefine": "0.0.5"
   }
 }
