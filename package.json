@@ -19,7 +19,8 @@
   "license": "LGPL",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "assert2": "~0.1.0"
+    "assert2": "~0.1.0",
+    "ws": "git://github.com/einaros/ws.git"
   },
   "dependencies": {
     "amdefine": "0.0.5"

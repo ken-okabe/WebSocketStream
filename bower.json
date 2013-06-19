@@ -1,8 +1,9 @@
 {
-    "name": "WebSocketStream",
-    "version": "2.0.1",
-    "main": "./lib/main.js",
-    "dependencies": {
-        "Node-in-browser": "0.10.x"
-    }
+  "name": "WebSocketStream",
+  "version": "2.0.1",
+  "main": "./lib/main.js",
+  "dependencies": {
+    "Node-in-browser": "0.10.x",
+    "requirejs": "~2.1.6"
+  }
 }
