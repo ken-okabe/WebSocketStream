@@ -1,6 +1,6 @@
 {
   "name": "websocketstream",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a Stream interface on top of WebSocket",
   "main": "lib/main.js",
   "scripts": {
