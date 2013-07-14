@@ -1,43 +1,82 @@
-# What
-
-A [Node.js stream](http://nodejs.org/api/stream.html) interface on top of
-[WebSocket](http://www.w3.org/TR/websockets/) that works in Node.js and the
+WebSocketStream provides a [Node.js stream](http://nodejs.org/api/stream.html) interface on top of
+[WebSocket](http://www.w3.org/TR/websockets/) that works on [Node.js](http://nodejs.org) and in the
 browser.
 
-# Why?
+## Installation
 
-I wanted a Node.js stream interface on top of WebSocket.  I looked at
-[Shoe](https://github.com/substack/shoe) and
-[websocket-stream](https://github.com/maxogden/websocket-stream).
-
-I wanted but didn't find:
-
-* a library that works on both Node.js and in the browser, using an AMD module
-in the browser without requiring a build step
-* a wrapper around WebSocket that allows direct access to the socket
-* to be able to use SockJS instead of WebSocket
-* a `drain` event to be emitted when the `bufferedAmount` is zero
-
-# Installation
-
-You can install the library with npm for use with Node.js:
+You can install the library with `npm` for use with Node.js:
 
 `npm install websocketstream`
 
-or with [Bower](http://http://bower.io/) for use in the browser:
+or with [Bower](http://bower.io/) for use in the browser:
 
 `bower install WebSocketStream`
 
-# Example
+## Node.js Example
 
 ```JavaScript
-require(['sockjs-client/sockjs', 'WebSocketStream/lib/main'],
-    function (SockJS, WebSocketStream) {
-    var sockJS = new SockJS('/SockJS'),
-        socketStream = new WebSocketStream(sockJS);
+'use strict';
 
-    socketStream.on('data', function (data) {
-        socketStream.write('Did you say, "' + data + '"?');
-    });
+var WebSocket = require('ws'),
+  webSocketServer = new WebSocket.Server({port: 8080}),
+  WebSocketStream = require('websocketstream');
+  
+webSocketServer.on('connection', function (webSocket) {
+  var stream = new WebSocketStream(webSocket);
+      
+  stream.on('readable', function () {
+    console.log("Something just came in over the wire: " + stream.read());
+  });
+        
+  stream.write("There's a place I know just east of here.");
 });
 ```
+
+## Browser Example
+
+```JavaScript
+'use strict';
+
+require.config({
+  map: {
+    '*': {
+      'stream': 'Node-in-browser/lib/stream',
+      'util': 'Node-in-browser/lib/util'
+    }
+  }
+});
+
+require(['WebSocketStream/lib/main'], function (WebSocketStream) {
+  var webSocket = new WebSocket('ws://' + location.host),
+    stream = new WebSocketStream(webSocket);
+  
+  stream.on('readable', function () {
+    console.log("Something just came in over the wire: " + stream.read());
+  });
+        
+  stream.write("There's a place I know just east of here.");  
+});
+```
+
+## Related Projects
+
+* [Shoe](https://github.com/substack/shoe)
+* [websocket-stream](https://github.com/maxogden/websocket-stream)
+
+## Copyright
+
+Copyright 2013 David Braun
+
+This file is part of WebSocketStream.
+
+WebSocketStream is free software: you can redistribute it and/or modify it under the
+terms of the GNU Lesser General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+WebSocketStream is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with WebSocketStream.  If not, see <http://www.gnu.org/licenses/>.
